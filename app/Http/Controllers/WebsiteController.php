@@ -3,21 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Website;
-use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Validator;
 
 class WebsiteController extends Controller
 {
-    public function get_all_websites(){
-        $websites = Website::paginate(50);
-        return response()->json(['websites' => $websites], 200);
-    }
-
-    public function store_subscription(Request $request){
+    public function store_website(Request $request){
         $validator = Validator::make($request->all(), [
-            'website_id' =>'required',
-            'email' =>'required|string|email',
+            'name' =>'required',
+            'url' =>'required|string|unique:websites',
 
         ]);
 
@@ -25,11 +19,17 @@ class WebsiteController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $website = Subscription::create([
-            'website_id' =>$request->website_id,
-            'email' => $request->email
+        $website = Website::create([
+            'name' =>$request->name,
+            'url' => $request->url
         ]);
 
         return response()->json(['website' => $website], 200);
     }
+
+    public function get_all_websites(){
+        $websites = Website::paginate(50);
+        return response()->json(['websites' => $websites], 200);
+    }
+
 }
