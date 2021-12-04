@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "82050204-9fc4-431e-af22-7f615840b34b",
+		"name": "subscriptions app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "subscriptions.test/api/subscriptions",
+					"host": [
+						"subscriptions",
+						"test"
+					],
+					"path": [
+						"api",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Websites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "subscriptions.test/api/websites",
+					"host": [
+						"subscriptions",
+						"test"
+					],
+					"path": [
+						"api",
+						"websites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "subscriptions.test/api/posts",
+					"host": [
+						"subscriptions",
+						"test"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Subscription",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "subscriptions.test/api/create/subscription?website_id=1&email=mymail@gmail.com",
+					"host": [
+						"subscriptions",
+						"test"
+					],
+					"path": [
+						"api",
+						"create",
+						"subscription"
+					],
+					"query": [
+						{
+							"key": "website_id",
+							"value": "1"
+						},
+						{
+							"key": "email",
+							"value": "mymail@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Website",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "subscriptions.test/api/create/subscription?name=Google&url=google.com",
+					"host": [
+						"subscriptions",
+						"test"
+					],
+					"path": [
+						"api",
+						"create",
+						"subscription"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Google"
+						},
+						{
+							"key": "url",
+							"value": "google.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "subscriptions.test/api/create/post?website_id=1&content=hello world",
+					"host": [
+						"subscriptions",
+						"test"
+					],
+					"path": [
+						"api",
+						"create",
+						"post"
+					],
+					"query": [
+						{
+							"key": "website_id",
+							"value": "1"
+						},
+						{
+							"key": "content",
+							"value": "hello world"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
