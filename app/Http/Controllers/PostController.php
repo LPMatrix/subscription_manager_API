@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -18,12 +19,16 @@ class PostController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $subscription = Post::create([
-            'website_id' =>$request->website_id,
-            'content' => $request->content
-        ]);
+        // $subscription = Post::create([
+        //     'website_id' =>$request->website_id,
+        //     'content' => $request->content
+        // ]);
 
-        return response()->json(['subscription' => $subscription], 200);
+        $emails = Subscription::where('website_id', $request->website_id)->pluck('email');
+  
+        dispatch(new \App\Jobs\SendEmailJob($emails));
+        dd('sent');
+        // return response()->json(['subscription' => $subscription], 200);
     }
     
 

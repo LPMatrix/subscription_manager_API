@@ -22,7 +22,7 @@ class SendEmailJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($send_mail)
     {
         $this->send_mail = $send_mail;
     }
